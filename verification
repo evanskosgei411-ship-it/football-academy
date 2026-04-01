@@ -1,0 +1,9 @@
+exports.verifyPlayer = async (req, res) => {
+  const player = await Player.findByIdAndUpdate(
+    req.params.id,
+    { verified: true },
+    { new: true }
+  );
+
+  res.json(player);
+};

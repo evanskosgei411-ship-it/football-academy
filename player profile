@@ -1,0 +1,10 @@
+const Player = require("../models/Player");
+
+exports.createProfile = async (req, res) => {
+  const player = await Player.create({
+    user: req.user.id,
+    ...req.body
+  });
+
+  res.json(player);
+};
